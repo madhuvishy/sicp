@@ -1,4 +1,4 @@
-; Newton's sqrt algorithm discussed in the book. Anything > 1.1 doesn't return a result in Clojure!
+; Newton's sqrt algorithm discussed in the book. 
 
 (defn square [x] (* x x))
 
@@ -6,7 +6,7 @@
 
 (defn good-enough? [guess x] (if (< (abs (- (square guess) x)) 0.1) true))
 
-(defn improve [guess x] (float (/ (+ x (/ guess x)) 2)))
+(defn improve [guess x] (float (/ (+ guess (/ x guess)) 2)))
 
 (defn try-sqrt [guess x] (if (good-enough? guess x) guess (recur (improve guess x) x)))
 
